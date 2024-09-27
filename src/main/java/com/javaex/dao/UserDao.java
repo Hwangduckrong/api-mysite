@@ -28,12 +28,24 @@ public class UserDao {
 		return authUser;
 	}
 	
-	//id로 데이터가져오기-id사용여부 체크할때 사용
+	/*id로 데이터가져오기-id사용여부 체크할때 사용*/
 	public int selecUserById(String id) {
 		System.out.println("UserDao.selecUserById()");
 		
 		int count = sqlSession.selectOne("user.selectById", id );
 		return count;
 	}
-	
+	public UserVo userSelectOneByNo(int no) {
+		System.out.println("UserDao.userSelectOneByNo()");
+
+		UserVo userVo = sqlSession.selectOne("user.selectOneByNo", no);
+		return userVo;
+	}
+	public int userUpdate(UserVo userVo) {
+		System.out.println("UserDao.userUpdate()");
+
+		int count = sqlSession.update("user.update", userVo);
+		return count;
+	}
+
 }
