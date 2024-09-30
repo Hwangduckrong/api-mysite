@@ -18,22 +18,19 @@ public class AttachService {
 	public String upload2(AttachVo2 attachVo2) {
 
 		String saveDir = "";
-		
+
 		String osName = System.getProperty("os.name").toLowerCase();
-		
-		if(osName.contains("linux")) {
+
+		if (osName.contains("linux")) {
 			System.out.println("리눅스");
-			saveDir ="/app/upload";
-		}else {
+			saveDir = "/home/ec2-user/upload";
+		} else {
 			System.out.println("윈도우");
-			saveDir ="C:\\javaStudy\\upload";
+			saveDir = "C:\\javaStudy\\upload";
 		}
-		
-		
-		
+
 		MultipartFile file = attachVo2.getImg();
-		
-	
+
 		// 오리지널 파일명
 		String orgName = file.getOriginalFilename();
 		System.out.println("orgName :" + orgName);
@@ -52,7 +49,7 @@ public class AttachService {
 		String saveName = System.currentTimeMillis() + UUID.randomUUID().toString() + exeName;
 
 		// 파일전체 경로 + 파일명
-		String filePath = saveDir+File.separator+ saveName;
+		String filePath = saveDir + File.separator + saveName;
 		System.out.println(filePath);
 
 		// (1) db 저장
@@ -84,9 +81,18 @@ public class AttachService {
 	public String upload(MultipartFile file) {
 
 		System.out.println(file.getOriginalFilename());
+	
+		String saveDir = "";
 
-		// 사진에 기본정보로 우리가 관리할 정보를 뽑아내야된다 --> db에 저장
-		String saveDir = "C:\\javaStudy\\upload";
+		String osName = System.getProperty("os.name").toLowerCase();
+
+		if (osName.contains("linux")) {
+			System.out.println("리눅스");
+			saveDir = "/home/ec2-user/upload";
+		} else {
+			System.out.println("윈도우");
+			saveDir = "C:\\javaStudy\\upload";
+		}
 
 		// 오리지널 파일명
 		String orgName = file.getOriginalFilename();
