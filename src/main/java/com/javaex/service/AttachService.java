@@ -23,7 +23,8 @@ public class AttachService {
 
 		if (osName.contains("linux")) {
 			System.out.println("리눅스");
-			saveDir = "/home/ec2-user/upload";
+			/*saveDir = "/home/ec2-user/upload";*/
+			saveDir="/app/upload";
 		} else {
 			System.out.println("윈도우");
 			saveDir = "C:\\javaStudy\\upload";
@@ -88,7 +89,9 @@ public class AttachService {
 
 		if (osName.contains("linux")) {
 			System.out.println("리눅스");
-			saveDir = "/home/ec2-user/upload";
+			/*saveDir = "/home/ec2-user/upload";*/
+			saveDir="/app/upload";
+			
 		} else {
 			System.out.println("윈도우");
 			saveDir = "C:\\javaStudy\\upload";
