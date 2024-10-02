@@ -28,7 +28,7 @@ jobs: # 작업을 정의
         run: mvn clean package		# Maven build 명령어: clean package 실행
 
       - name: Build Docker image	# 단계이름 'Build Docker image(도커이미지빌드)' 
-        run: docker build -t clz2024sun/mysite:latest . #도 커이미지빌드 명령어 도커허브/레파지토리:태그
+        run: docker build -t hwangduckrong/mysite:latest . #도 커이미지빌드 명령어 도커허브/레파지토리:태그
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin #비밀번호와 유저명을 코드에 보이지않게 처리(깃허브에 세팅한 값)
